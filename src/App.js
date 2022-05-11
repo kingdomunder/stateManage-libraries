@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import Header from './library/Header'
+import Jotai from './library/jotai'
+import Recoil from './library/recoil'
+import Constate from './library/constate'
+import RTK from './library/RTK'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+			<Header />
+			<Routes>
+				<Route exact path={'/'} element={ <Navigate to='recoil' />} />
+				<Route exact path={'/constate'} element={<Constate />} />
+				<Route exact path={'/jotai'} element={<Jotai />} />
+				<Route exact path={'/recoil'} element={<Recoil />} />
+				<Route exact path={'/RTK'} element={<RTK />} />
+			</Routes>
     </div>
   );
 }
